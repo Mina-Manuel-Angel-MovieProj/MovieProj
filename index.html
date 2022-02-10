@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<!--    bootstrap-->
+    <!--    bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,33 +17,32 @@
         <p class="lead">WELCOME to MOVIE APP.</p>
     </div>
 </div>
-<div id="search"></div>
-
-<div class="input-group mb-3"></div>
-
+<div id="header">
+    <div id="search"></div>
+<div id="Add_form" class="popup_form none">
 <form>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="input_Title">Title</label>
-            <input type="email" class="form-control" id="input_Title">
+            <input class="form-control" id="input_Title">
         </div>
         <div class="form-group col-md-6">
             <label for="input_Rating">Rating</label>
-            <input type="password" class="form-control" id="input_Rating">
+            <input class="form-control" id="input_Rating">
         </div>
     </div>
     <div class="form-group">
         <label for="input_Year">Year</label>
-        <input type="text" class="form-control" id="input_Year">
+        <input class="form-control" id="input_Year">
     </div>
     <div class="form-group">
         <label for="input_Director">Director</label>
-        <input type="text" class="form-control" id="input_Director">
+        <input class="form-control" id="input_Director">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="input_Plot">Plot</label>
-            <input type="text" class="form-control" id="input_Plot">
+            <input class="form-control" id="input_Plot">
         </div>
         <div class="form-group col-md-4">
             <label for="input_Genre">Genre</label>
@@ -63,9 +62,12 @@
             <input type="text" class="form-control" id="input_Actors">
         </div>
     </div>
-    <button class="btn btn-primary">Add Movie Here</button>
+    <button id="add_btn" class="btn btn-primary">Submit</button>
 </form>
-
+    </div>
+    <button id="open_form" class="btn btn-primary">Add A Movie</button>
+</div>
+<div class="w-100 m-5"></div>
 <div id="movie__cards" class="row"></div>
 <!---->
 

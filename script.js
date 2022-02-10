@@ -1,5 +1,12 @@
 'use strict'
 
+let input_Title= document.getElementById("input_Title")
+let input_Rating= document.getElementById("input_Rating")
+let input_Year= document.getElementById("input_Year")
+let input_Director= document.getElementById("input_Director")
+let input_Plot= document.getElementById("input_Plot")
+let input_Genre= document.getElementById("input_Genre")
+let input_Actors= document.getElementById("input_Actors")
 //LOADING PAGE
 // loading.toggle()
 // HTML + CSS
@@ -40,14 +47,23 @@ function add (){
     let addMovie = {
         method: 'POST',
         body: {
-            title: movie.title,
+            title: input_Title.value,
+            rating: input_Rating.value,
+            year: input_Year.value,
+            director: input_Director.value,
+            plot: input_Plot.value,
+            genre: input_Genre.value,
+            actors: input_Actors.value
         }
     }
-    fetch(url, )
+    $.post(url, addMovie)
 }
 
+document.getElementById("add_btn").addEventListener("click", add); // submit button add function
 
-
+document.getElementById("open_form").addEventListener("click",()=>{
+$("#Add_form").toggleClass("none")
+})
 
 //DELETING
 //  creat button html

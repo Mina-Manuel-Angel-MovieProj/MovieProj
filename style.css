@@ -1,0 +1,20 @@
+#header{
+    position: relative;
+}
+.none{
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    display: none;
+}
+.popup_form{
+    background-color: white;
+    border: 3px solid black;
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    width: 70%;
+    height: 570px;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 4s ease-in-out;
+}
