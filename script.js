@@ -62,12 +62,23 @@ function add (){
 document.getElementById("add_btn").addEventListener("click", add); // submit button add function
 
 document.getElementById("open_form").addEventListener("click",()=>{
-$("#Add_form").toggleClass("none")
+$("#Add_form").toggleClass("none active")
 })
 
 //DELETING
 //  creat button html
 //grab btn  click ()   : fetch ()  .delete
+function del (){
+    let delMovie = {
+        method: 'DELETE',
+        body: {
+            id: $(this).id
+        }
+    }
+    $.post(url, delMovie)
+}
+
+$(".delete").click(()=>{del()})
 
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.

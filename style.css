@@ -2,9 +2,17 @@
     position: relative;
 }
 .none{
+   transform: translateX(-20px);
     opacity: 0;
-    transition: all 300ms ease-in-out;
-    display: none;
+    visibility: hidden;
+    transition: .3s, visibility 0s .3s, opacity .3s linear;
+}
+.active{
+    transform: translateX(0px);
+    visibility: visible;
+    opacity: 1;
+    transition: .3s, opacity .3s linear;
+
 }
 .popup_form{
     background-color: white;
@@ -15,6 +23,5 @@
     width: 70%;
     height: 570px;
     z-index: 2;
-    opacity: 1;
-    transition: opacity 4s ease-in-out;
+
 }
