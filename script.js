@@ -7,7 +7,26 @@
 // HTML form
 
 //1 LOADING
+// edit will be our website specifically, will add locale to the end to remember changes
 //2 GET ()  movie list .  each movie list will have delete button ( link to 21 ) / edit button,
+let html = document.getElementById("movie__cards")
+$.ajax('https://mma-movies.glitch.me/movies')
+    .done((data)=>{
+        console.log(data)
+        data.map(movie=> {
+            //fetch(movieapi?=movie).then()
+
+            html.innerHTML += "<div id='movie_title'>"+ movie.title+"</div>"
+            +"<div id='movie_actors'>"+ movie.actors+"</div>"
+             +"<div id='movie_director'>"+ movie.director+"</div>"
+             +"<div id='movie_genre'>"+ movie.genre+"</div>"
+                +"<div id='movie_plot'>"+ movie.plot+"</div>"
+                +"<div id='movie_poster'><img src='"+ movie.poster+"' alt='"+movie.title+"'></div>"
+                +"<div id='movie_rating'> rating: "+ movie.rating+"</div>"
+                +"<div id='movie_year'>"+ movie.year+"</div>"
+    })
+})
+
 //3 refresh page function -
 
 
@@ -26,9 +45,11 @@
 
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
-$.post('https://mma-movies.glitch.me/movies',{
-        method : 'POST',
-        body : JSON.stringify({
+
+
+
+/*$.post('https://mma-movies.glitch.me/movies',()=>{
+        JSON.stringify({
             "title": "Encanto",
             "rating": "5",
             "poster": "https://movies.disney.com/encanto",
@@ -40,6 +61,6 @@ $.post('https://mma-movies.glitch.me/movies',{
             "id": 6
         })
     }
-)
+)*/
 
 
