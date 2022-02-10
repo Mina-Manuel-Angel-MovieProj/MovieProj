@@ -8,6 +8,7 @@
 
 //1 LOADING
 // edit will be our website specifically, will add locale to the end to remember changes
+let url = 'https://mma-movies.glitch.me/movies'
 //2 GET ()  movie list .  each movie list will have delete button ( link to 21 ) / edit button,
 let html = document.getElementById("movie__cards")
 $.ajax('https://mma-movies.glitch.me/movies')
@@ -34,7 +35,16 @@ $.ajax('https://mma-movies.glitch.me/movies')
 //ADDING
 // creat button  html
 //grab btn jquery click ()  eventregister : fetch ( ).post :  form
-function add (){}
+
+function add (){
+    let addMovie = {
+        method: 'POST',
+        body: {
+            title: movie.title,
+        }
+    }
+    fetch(url, )
+}
 
 
 

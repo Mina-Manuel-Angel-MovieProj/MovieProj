@@ -18,6 +18,54 @@
     </div>
 </div>
 <div id="search"></div>
+
+<div class="input-group mb-3"></div>
+
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="input_Title">Title</label>
+            <input type="email" class="form-control" id="input_Title">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="input_Rating">Rating</label>
+            <input type="password" class="form-control" id="input_Rating">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input_Year">Year</label>
+        <input type="text" class="form-control" id="input_Year">
+    </div>
+    <div class="form-group">
+        <label for="input_Director">Director</label>
+        <input type="text" class="form-control" id="input_Director">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="input_Plot">Plot</label>
+            <input type="text" class="form-control" id="input_Plot">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input_Genre">Genre</label>
+            <select id="input_Genre" class="form-control">
+                <option selected>Choose...</option>
+                <option>Horror</option>
+                <option>Sci-Fi</option>
+                <option>ROMCOM</option>
+                <option>Adventure</option>
+                <option>Action</option>
+                <option>Drama</option>
+                <option>Family</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="input_Actors">Actors</label>
+            <input type="text" class="form-control" id="input_Actors">
+        </div>
+    </div>
+    <button class="btn btn-primary">Add Movie Here</button>
+</form>
+
 <div id="movie__cards" class="row"></div>
 <!---->
 
