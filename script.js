@@ -16,14 +16,14 @@ $.ajax('https://mma-movies.glitch.me/movies')
         data.map(movie=> {
             //fetch(movieapi?=movie).then()
 
-            html.innerHTML += "<div id='movie_title'>"+ movie.title+"</div>"
-            +"<div id='movie_actors'>"+ movie.actors+"</div>"
-             +"<div id='movie_director'>"+ movie.director+"</div>"
-             +"<div id='movie_genre'>"+ movie.genre+"</div>"
-                +"<div id='movie_plot'>"+ movie.plot+"</div>"
-                +"<div id='movie_poster'><img src='"+ movie.poster+"' alt='"+movie.title+"'></div>"
-                +"<div id='movie_rating'> rating: "+ movie.rating+"</div>"
-                +"<div id='movie_year'>"+ movie.year+"</div>"
+            html.innerHTML +=
+
+                "<div className='card' class='col-3 border border-primary'>" +
+                "<img className='card-img-top' class='img-thumbnail' src='"+movie.poster+"' alt='"+movie.title+
+                "'<div className='card-body'><h5 className='card-title'>"+movie.title+"</h5><p className='card-text'>"+movie.plot+"</p>" +
+                "<ul className='list-group list-group-flush'><li className='list-group-item'>"+movie.director+
+                ", year:"+ movie.year+"</li><li className='list-group-item'>"+movie.actors+"</li><li className='list-group-item'>"+movie.genre+", rating: "+ movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='"+movie.id+"' class='edit float-left'>edit</button> <button id='"+movie.id+"' class='delete float-right'>delete</button></a></div></div></div>"
+
     })
 })
 
@@ -34,7 +34,7 @@ $.ajax('https://mma-movies.glitch.me/movies')
 //ADDING
 // creat button  html
 //grab btn jquery click ()  eventregister : fetch ( ).post :  form
-
+function add (){}
 
 
 
