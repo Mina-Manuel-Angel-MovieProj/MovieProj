@@ -7,6 +7,9 @@ let input_Director= document.getElementById("input_Director")
 let input_Plot= document.getElementById("input_Plot")
 let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
+
+
+
 //LOADING PAGE
 // loading.toggle()
 // HTML + CSS
@@ -30,7 +33,7 @@ $.ajax('https://mma-movies.glitch.me/movies')
                 "<img className='card-img-top' class='img-thumbnail' src='"+movie.poster+"' alt='"+movie.title+
                 "'<div className='card-body'><h5 className='card-title'>"+movie.title+"</h5><p className='card-text'>"+movie.plot+"</p>" +
                 "<ul className='list-group list-group-flush'><li className='list-group-item'>"+movie.director+
-                ", year:"+ movie.year+"</li><li className='list-group-item'>"+movie.actors+"</li><li className='list-group-item'>"+movie.genre+", rating: "+ movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='"+movie.id+"' class='edit float-left'>edit</button> <button id='"+movie.id+"' class='delete float-right'>delete</button></a></div></div></div>"
+                ", year:"+ movie.year+"</li><li className='list-group-item'>"+movie.actors+"</li><li className='list-group-item'>"+movie.genre+", rating: "+ movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='"+movie.id+"' class='edit float-left'>edit</button> <button id='"+movie.id+"' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
 
     })
 })
@@ -68,18 +71,21 @@ $("#Add_form").toggleClass("none active")
 //DELETING
 //  creat button html
 //grab btn  click ()   : fetch ()  .delete
-function del (){
+function del(button_id) {
+    let id = button_id
+
     let delMovie = {
-        method: 'DELETE',
-        body: {
-            id: $(this).id
-        }
+        method: 'DELETE'
     }
-    $.post(url, delMovie)
+     // fetch(url+`?id=${id}`, delMovie)
+ $.get()
 }
+// --- delete function reaches the delete button grabs its specific btn id, adds it to the fetch url for deletion
 
-$(".delete").click(()=>{del()})
 
+// let del_btn=document.getElementsByClassName(".delete")
+    // del_btn.addEventListener("click",del)  // attaching click event delete to delete button
+// console.log(del_btn)
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
 
