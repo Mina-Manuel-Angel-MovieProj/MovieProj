@@ -7,8 +7,7 @@ let input_Director= document.getElementById("input_Director")
 let input_Plot= document.getElementById("input_Plot")
 let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
-
-
+let moviesArray = [];
 
 //LOADING PAGE
 // loading.toggle()
@@ -28,14 +27,15 @@ function getMovie() {
             console.log(data)
             data.map(movie => {
                 //fetch(movieapi?=movie).then()
-
+                moviesArray += data;
+                console.log(moviesArray);
                 html.innerHTML +=
 
                     "<div className='card' class='col-3 border border-primary'>" +
                     "<img className='card-img-top' class='img-thumbnail' src='" + movie.poster + "' alt='" + movie.title +
                     "'<div className='card-body'><h5 className='card-title'>" + movie.title + "</h5><p className='card-text'>" + movie.plot + "</p>" +
                     "<ul className='list-group list-group-flush'><li className='list-group-item'>" + movie.director +
-                    ", year:" + movie.year + "</li><li className='list-group-item'>" + movie.actors + "</li><li className='list-group-item'>" + movie.genre + ", rating: " + movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='" + movie.id + "' class='edit float-left'>edit</button> <button id='" + movie.id + "' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
+                    ", year:" + movie.year + "</li><li className='list-group-item'>" + movie.actors + "</li><li className='list-group-item'>" + movie.genre + ", rating: " + movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='" + movie.id + "' class='edit float-left' onclick='edit($(this).attr(\"id\"))'>edit</button> <button id='" + movie.id + "' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
 
             })
         })
@@ -89,8 +89,10 @@ function del(button_id) {
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
 
-function edit(){
+function edit(button_id){
     let edit_form = document.getElementById("edit_form");
+    let id = button_id
+    $("#edit_form").toggleClass("none active")
 
 }
 
