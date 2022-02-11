@@ -28,7 +28,7 @@ function getMovie() {
             data.map(movie => {
                 //fetch(movieapi?=movie).then()
                 moviesArray.push(movie);
-                console.log(moviesArray);
+                //console.log(moviesArray);
                 html.innerHTML +=
 
                     "<div className='card' class='col-3 border border-primary'>" +
@@ -70,7 +70,7 @@ $("#Add_form").toggleClass("none active")
 })
 
 //DELETING
-//  creat button html
+//  create button html
 //grab btn  click ()   : fetch ()  .delete
 function del(button_id) {
     let id = button_id
@@ -88,16 +88,16 @@ function del(button_id) {
 // console.log(del_btn)
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
-
+// $(document).on('click', function)   Timing issue?. s
 function edit(button_id){
     let edit_form = $("#edit_form")
     let id = button_id
     edit_form.toggleClass("none active")
  let edit_btn=$("#Edit_btn");
-    edit_btn.click(()=> {
+    edit_btn.(()=> {
         fetch(url+`/${id}`,{
             method: "PUT",
-            body:JSON.stringify({
+            body: JSON.stringify({
                 title: $("#Edit_Title").val(),
                 rating: $("#Edit_Rating").val(),
                 year: $("#Edit_Year").val(),
@@ -105,8 +105,9 @@ function edit(button_id){
                 plot: $("#Edit_Plot").val(),
                 genre: $("#Edit_Genre").val(),
                 actors: $("#Edit_Actors").val()
-            })
-        })
+            }),
+        }).then((response)=>response.json())
+            .then((json)=> console.log(json));
     })
 }
 
