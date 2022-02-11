@@ -27,7 +27,7 @@ function getMovie() {
             console.log(data)
             data.map(movie => {
                 //fetch(movieapi?=movie).then()
-                moviesArray += data;
+                moviesArray.push(movie);
                 console.log(moviesArray);
                 html.innerHTML +=
 
@@ -90,10 +90,24 @@ function del(button_id) {
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
 
 function edit(button_id){
-    let edit_form = document.getElementById("edit_form");
+    let edit_form = $("#edit_form")
     let id = button_id
-    $("#edit_form").toggleClass("none active")
-
+    edit_form.toggleClass("none active")
+ let edit_btn=$("#Edit_btn");
+    edit_btn.click(()=> {
+        fetch(url+`/${id}`,{
+            method: "PUT",
+            body:JSON.stringify({
+                title: $("#Edit_Title").val(),
+                rating: $("#Edit_Rating").val(),
+                year: $("#Edit_Year").val(),
+                director: $("#Edit_Director").val(),
+                plot: $("#Edit_Plot").val(),
+                genre: $("#Edit_Genre").val(),
+                actors: $("#Edit_Actors").val()
+            })
+        })
+    })
 }
 
 
