@@ -93,19 +93,42 @@ function edit(button_id){
     let edit_form = $("#edit_form")
     let id = button_id
     edit_form.toggleClass("none active")
+
+    let edit_title ='';
+    let edit_rate ='';
+    let edit_year = '';
+    let edit_director = '';
+    let edit_plot = '';
+    let edit_genre = '';
+    let edit_actors = '';
+
+
+
  let edit_btn=$("#Edit_btn");
-    edit_btn.(()=> {
+    edit_btn.on('click',()=> {
+        edit_title = $("#Edit_Title").val();
+        edit_year = $("#Edit_Year").val();
+        edit_rate = $("#Edit_Rating").val();
+        edit_director = $("#Edit_Director").val();
+        edit_plot = $("#Edit_Plot").val();
+        edit_genre = $("#Edit_Genre").val();
+        edit_actors = $("#Edit_Actors").val()
+
+        console.log(edit_title);
+        console.log(edit_actors);
+
+
         fetch(url+`/${id}`,{
             method: "PUT",
-            body: JSON.stringify({
-                title: $("#Edit_Title").val(),
-                rating: $("#Edit_Rating").val(),
-                year: $("#Edit_Year").val(),
-                director: $("#Edit_Director").val(),
-                plot: $("#Edit_Plot").val(),
-                genre: $("#Edit_Genre").val(),
-                actors: $("#Edit_Actors").val()
-            }),
+            body: JSON.stringify([{
+                title: edit_title,
+                rating: edit_rate,
+                year: edit_year,
+                director: edit_director,
+                plot: edit_plot,
+                genre: edit_genre,
+                actors: edit_actors,
+            }]),
         }).then((response)=>response.json())
             .then((json)=> console.log(json));
     })
