@@ -1,3 +1,49 @@
+:root{
+    /* font size   */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+
+    /*    font family*/
+
+    --font-h1: 'Hahmlet', serif;
+    --font-movie-title: 'Love Ya Like A Sister', cursive;
+    --font-p: 'Montserrat Alternates', sans-serif;
+
+    /*  color */
+
+    --color-gold: #ffd700;
+    --color-black: #000000;
+    --color-white: #eeeeee;
+    --color-light-grey: #7c7979;
+
+
+
+    /*    Universal tag -  this will make width and height size same even if adding padding*/
+    --box-sizing: border-box
+
+}
+/* ideas of css , possibility : */
+
+/* favicon will be a curtain*/
+/**/
+
+/*jumbotron background : similar to captured image,  */
+/*move the button to middle, add background with golden ticket image */
+/*background possible color : burgundy -ishy dark red (similar to curtain color ) + black base..  */
+/* each movie poster card will have a background of movie film strip, as :image overlays :bootstrap  opacity down , */
+/*buttons inside the card will have design */
+/*additional colors will be added to root after set the background ! */
+
+
+
+
+
+
+
+
 #header{
     position: relative;
 }
