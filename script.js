@@ -21,23 +21,26 @@ let input_Actors= document.getElementById("input_Actors")
 let url = 'https://mma-movies.glitch.me/movies'
 //2 GET ()  movie list .  each movie list will have delete button ( link to 21 ) / edit button,
 let html = document.getElementById("movie__cards")
-$.ajax('https://mma-movies.glitch.me/movies')
-    .done((data)=>{
-        console.log(data)
-        data.map(movie=> {
-            //fetch(movieapi?=movie).then()
+function getMovie() {
+    html.innerHTML= ""
+    $.ajax('https://mma-movies.glitch.me/movies')
+        .done((data) => {
+            console.log(data)
+            data.map(movie => {
+                //fetch(movieapi?=movie).then()
 
-            html.innerHTML +=
+                html.innerHTML +=
 
-                "<div className='card' class='col-3 border border-primary'>" +
-                "<img className='card-img-top' class='img-thumbnail' src='"+movie.poster+"' alt='"+movie.title+
-                "'<div className='card-body'><h5 className='card-title'>"+movie.title+"</h5><p className='card-text'>"+movie.plot+"</p>" +
-                "<ul className='list-group list-group-flush'><li className='list-group-item'>"+movie.director+
-                ", year:"+ movie.year+"</li><li className='list-group-item'>"+movie.actors+"</li><li className='list-group-item'>"+movie.genre+", rating: "+ movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='"+movie.id+"' class='edit float-left'>edit</button> <button id='"+movie.id+"' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
+                    "<div className='card' class='col-3 border border-primary'>" +
+                    "<img className='card-img-top' class='img-thumbnail' src='" + movie.poster + "' alt='" + movie.title +
+                    "'<div className='card-body'><h5 className='card-title'>" + movie.title + "</h5><p className='card-text'>" + movie.plot + "</p>" +
+                    "<ul className='list-group list-group-flush'><li className='list-group-item'>" + movie.director +
+                    ", year:" + movie.year + "</li><li className='list-group-item'>" + movie.actors + "</li><li className='list-group-item'>" + movie.genre + ", rating: " + movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='" + movie.id + "' class='edit float-left'>edit</button> <button id='" + movie.id + "' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
 
-    })
-})
-
+            })
+        })
+}
+getMovie()
 //3 refresh page function -
 
 
@@ -48,8 +51,6 @@ $.ajax('https://mma-movies.glitch.me/movies')
 
 function add (){
     let addMovie = {
-        method: 'POST',
-        body: {
             title: input_Title.value,
             rating: input_Rating.value,
             year: input_Year.value,
@@ -57,7 +58,7 @@ function add (){
             plot: input_Plot.value,
             genre: input_Genre.value,
             actors: input_Actors.value
-        }
+
     }
     $.post(url, addMovie)
 }
@@ -75,10 +76,9 @@ function del(button_id) {
     let id = button_id
 
     let delMovie = {
-        method: 'DELETE'
+        method: 'DELETE',
     }
-     // fetch(url+`?id=${id}`, delMovie)
- $.get()
+     fetch(url+`/${id}`, delMovie).then(getMovie)
 }
 // --- delete function reaches the delete button grabs its specific btn id, adds it to the fetch url for deletion
 
@@ -89,21 +89,10 @@ function del(button_id) {
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
 
+function edit(){
+    let edit_form = document.getElementById("edit_form");
 
+}
 
-/*$.post('https://mma-movies.glitch.me/movies',()=>{
-        JSON.stringify({
-            "title": "Encanto",
-            "rating": "5",
-            "poster": "https://movies.disney.com/encanto",
-            "year": "2021",
-            "genre": "Adventure, Animation,Fantasy",
-            "director": "Byron Howard, Jared Bush, Charise Castro Smith",
-            "plot": "Walt Disney Animation Studios’ “Encanto” tells the tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family with a unique gift from super strength to the power to heal—every child except one, Mirabel (voice of Stephanie Beatriz). But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family’s last hope.",
-            "actors": "Stephanie Beatriz, María Cecilia Botero, Wilmer Valderrama, Adassa, Diane Guerrero, Mauro Castillo, Angie Cepeda, Jessica Darrow, Rhenzy Feliz, Carolina Gaitán, Ravi Cabot-Conyers, John Leguizamo",
-            "id": 6
-        })
-    }
-)*/
 
 
