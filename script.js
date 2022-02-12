@@ -8,12 +8,16 @@ let input_Plot= document.getElementById("input_Plot")
 let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
 
-//initial load
-$(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),1000)})
+//initial load better idea to load until main is done, loader will be inside main fetch
+// $(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),1000)})
+//calls to load and unload our screen -- tried to make screen variable, but fadein/out doesnt like that.
+let loading= ()=>$("#loading_Screen").fadeIn("fast")
+let finished= ()=>$("#loading_Screen").fadeOut("slow")
 
 let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
 function getMovie() {
+ loading();
     html.innerHTML= ""
     $.ajax('https://mma-movies.glitch.me/movies')
         .done((data) => {
@@ -36,6 +40,7 @@ function getMovie() {
                     "' class='delete float-right' onclick='del($(this).attr(\"data-id\"))'>delete</button></a></div></div></div>"
 
             })
+        setTimeout(finished(),1000);
         })
 }
 getMovie()
