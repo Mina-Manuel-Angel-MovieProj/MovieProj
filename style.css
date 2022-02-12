@@ -50,6 +50,16 @@
     z-index: 40;
 }
 
+h1{
+    font-family: var(--font-h1);
+}
+h5{
+    font-family: var(--font-movie-title);
+}
+p{
+    font-family: var(--font-p);
+}
+
 
 #header{
     position: relative;
@@ -75,7 +85,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(90, 90, 90, 0.5);
+    background:   repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(127, 2, 2, 0.2) 10px,
+            rgba(127, 2, 2,.2) 20px
+    ), repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            rgba(127, 2, 2,.2) 10px,
+            rgba(127, 2, 2,.2) 20px
+    );
+
     z-index: 2;
 }
 .popup_form{

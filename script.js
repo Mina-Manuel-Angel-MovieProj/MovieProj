@@ -9,9 +9,7 @@ let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
 
 //initial load
-$(window).on("load",()=>{
-    setTimeout(()=>$("#loading_Screen").fadeOut("slow"),2000)
-})
+$(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),0)})
 
 let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
@@ -41,7 +39,6 @@ function getMovie() {
         })
 }
 getMovie()
-//3 refresh page function -
 
 
 
@@ -73,7 +70,6 @@ $("#add_btn").toggleClass("none active");
 })
 
 //DELETING
-//  create button html
 //grab btn  click ()   : fetch ()  .delete
 function del(id) {
 
@@ -83,15 +79,10 @@ function del(id) {
     }
      fetch(url+`/${id}`, delMovie).then(getMovie)
 }
-// --- delete function reaches the delete button grabs its specific btn id, adds it to the fetch url for deletion
 
-
-// let del_btn=document.getElementsByClassName(".delete")
-    // del_btn.addEventListener("click",del)  // attaching click event delete to delete button
-// console.log(del_btn)
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
-// $(document).on('click', function)   Timing issue?. s
+// turns out for editing Headers are important. at leaast in our case
 function edit(id){
 let edit =$("#Edit_btn")
     $("#form").toggleClass("none active");
