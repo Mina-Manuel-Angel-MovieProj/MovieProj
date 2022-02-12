@@ -9,7 +9,7 @@ let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
 
 //initial load
-$(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),0)})
+$(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),1000)})
 
 let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
