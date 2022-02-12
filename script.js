@@ -7,17 +7,11 @@ let input_Director= document.getElementById("input_Director")
 let input_Plot= document.getElementById("input_Plot")
 let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
-let moviesArray = [];
 
 //initial load
-$(window).on("load",()=>{
-    setTimeout(()=>$("#loading_Screen").fadeOut("slow"),2000)
-})
+$(window).on("load",()=>{setTimeout(()=>$("#loading_Screen").fadeOut("slow"),1000)})
 
-//1 LOADING
-// edit will be our website specifically, will add locale to the end to remember changes
 let url = 'https://mma-movies.glitch.me/movies'
-//2 GET ()  movie list .  each movie list will have delete button ( link to 21 ) / edit button,
 let html = document.getElementById("movie__cards")
 function getMovie() {
     html.innerHTML= ""
@@ -45,7 +39,6 @@ function getMovie() {
         })
 }
 getMovie()
-//3 refresh page function -
 
 
 
@@ -61,20 +54,22 @@ function add (){
             director: input_Director.value,
             plot: input_Plot.value,
             genre: input_Genre.value,
-            actors: input_Actors.value
-
+            actors: input_Actors.value,
+            poster: "none"
     }
-    $.post(url, addMovie)
+    $.post(url, addMovie).done(getMovie)
+    $("#form").toggleClass("none active")
 }
 
 document.getElementById("add_btn").addEventListener("click", add); // submit button add function
 
-document.getElementById("open_form").addEventListener("click",()=>{
-$("#Add_form").toggleClass("none active")
+document.getElementById("open_form_add").addEventListener("click",()=>{
+//these will make sure its opened on click. not just toggled
+$("#form").toggleClass("none active");
+$("#add_btn").toggleClass("none active");
 })
 
 //DELETING
-//  create button html
 //grab btn  click ()   : fetch ()  .delete
 function del(id) {
 
@@ -84,47 +79,44 @@ function del(id) {
     }
      fetch(url+`/${id}`, delMovie).then(getMovie)
 }
-// --- delete function reaches the delete button grabs its specific btn id, adds it to the fetch url for deletion
 
-
-// let del_btn=document.getElementsByClassName(".delete")
-    // del_btn.addEventListener("click",del)  // attaching click event delete to delete button
-// console.log(del_btn)
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
-// $(document).on('click', function)   Timing issue?. s
+// turns out for editing Headers are important. at leaast in our case
 function edit(id){
-    $("#edit_form").toggleClass("none active")
+let edit =$("#Edit_btn")
+    $("#form").toggleClass("none active");
+    edit.toggleClass("none active");
 
+        edit.on('click',()=> {
 
- let edit_btn=$("#Edit_btn");
-    edit_btn.on('click',()=> {
-        let edit_title =    $("#Edit_Title");
-        let edit_year =     $("#Edit_Year");
-        let edit_rate =     $("#Edit_Rating");
-        let edit_director = $("#Edit_Director");
-        let edit_plot =     $("#Edit_Plot");
-        let edit_genre =    $("#Edit_Genre");
-        let edit_actors =   $("#Edit_Actors");
-
-        fetch(url+`/${id}`,{
+            fetch(url+`/${id}`,{
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                id: id,
-                title:    edit_title.val(),
-                rating:   edit_rate.val(),
-                year:     edit_year.val(),
-                director: edit_director.val(),
-                plot:     edit_plot.val(),
-                genre:    edit_genre.val(),
-                actors:   edit_actors.val(),
-                poster:     "none"
+                title: input_Title.value,
+                rating: input_Rating.value,
+                year: input_Year.value,
+                director: input_Director.value,
+                plot: input_Plot.value,
+                genre: input_Genre.value,
+                actors: input_Actors.value,
+                poster: "none",
+                id:id
             }),
         }).then((response)=>console.log(response.json()))
-            .then(getMovie);
+            .then(()=>{getMovie();});
     })
 }
 
-
+$("#close").click(()=>{
+    function removeOptions(input){
+        if(input.hasClass("active")){
+            input.toggleClass("none active")
+        }
+    }
+    removeOptions($("#add_btn"));
+    removeOptions($("#Edit_btn"));
+    $("#form").toggleClass("none active");
+}) //makes sure close button resets all other important button statuses
 
