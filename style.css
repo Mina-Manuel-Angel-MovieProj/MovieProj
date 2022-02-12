@@ -25,13 +25,36 @@
     --box-sizing: border-box
 
 }
+/*.jumbotron{*/
+/*    background-image: url("assets/header copy.png");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: auto 100%;*/
+/*    background-position: center;*/
+/*}*/
+
+.jumbotron {
+    height: 0;
+    position: relative;
+    padding: 56.25% 0 0 !important;
+    background-image: url("assets/header copy.png") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 /* ideas of css , possibility : */
 
-/* favicon will be a curtain*/
+/* favicon will be a curtain ✅*/
 /**/
 
-/*jumbotron background : similar to captured image,  */
+/*jumbotron background : similar to captured image, ✅ */
 /*move the button to middle, add background with golden ticket image */
+
+
+
+/*.btn-img{*/
+/*    background-image: url("assets/button.png");*/
+/*    background-size: cover;*/
+/*}*/
 /*background possible color : burgundy -ishy dark red (similar to curtain color ) + black base..  */
 /* each movie poster card will have a background of movie film strip, as :image overlays :bootstrap  opacity down , */
 /*buttons inside the card will have design */
