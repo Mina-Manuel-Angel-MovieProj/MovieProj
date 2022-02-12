@@ -9,11 +9,10 @@ let input_Genre= document.getElementById("input_Genre")
 let input_Actors= document.getElementById("input_Actors")
 let moviesArray = [];
 
-//LOADING PAGE
-// loading.toggle()
-// HTML + CSS
-
-// HTML form
+//initial load
+$(window).on("load",()=>{
+    setTimeout(()=>$("#loading_Screen").fadeOut("slow"),2000)
+})
 
 //1 LOADING
 // edit will be our website specifically, will add locale to the end to remember changes
@@ -27,15 +26,20 @@ function getMovie() {
             console.log(data)
             data.map(movie => {
                 //fetch(movieapi?=movie).then()
-                moviesArray.push(movie);
+
                 //console.log(moviesArray);
                 html.innerHTML +=
 
-                    "<div className='card' class='col-3 border border-primary'>" +
-                    "<img className='card-img-top' class='img-thumbnail' src='" + movie.poster + "' alt='" + movie.title +
-                    "'<div className='card-body'><h5 className='card-title'>" + movie.title + "</h5><p className='card-text'>" + movie.plot + "</p>" +
-                    "<ul className='list-group list-group-flush'><li className='list-group-item'>" + movie.director +
-                    ", year:" + movie.year + "</li><li className='list-group-item'>" + movie.actors + "</li><li className='list-group-item'>" + movie.genre + ", rating: " + movie.rating + "</li></ul><div className='card-body'><a href='#' className='card-link'><button id='" + movie.id + "' class='edit float-left' onclick='edit($(this).attr(\"id\"))'>edit</button> <button id='" + movie.id + "' class='delete float-right' onclick='del($(this).attr(\"id\"))'>delete</button></a></div></div></div>"
+                    "<div class='card col-3 border border-primary'>" +
+                    "<img class='card-img-top img-thumbnail' src='" + movie.poster + "' alt='" + movie.title +
+                    "'<div class='card-body'><h5 class='card-title'>" + movie.title + "</h5><p class='card-text'>" +
+                    movie.plot + "</p>" +
+                    "<ul class='list-group list-group-flush'><li class='list-group-item'>" + movie.director +
+                    ", year:" + movie.year + "</li><li class='list-group-item'>" + movie.actors +
+                    "</li><li class='list-group-item'>" + movie.genre + ", rating: " + movie.rating +
+                    "</li></ul><div class='card-body'><a href='#' class='card-link'><button data-id='" + movie.id +
+                    "' class='edit float-left' onclick='edit($(this).attr(\"data-id\"))'>edit</button> <button data-id='" + movie.id +
+                    "' class='delete float-right' onclick='del($(this).attr(\"data-id\"))'>delete</button></a></div></div></div>"
 
             })
         })
@@ -72,8 +76,8 @@ $("#Add_form").toggleClass("none active")
 //DELETING
 //  create button html
 //grab btn  click ()   : fetch ()  .delete
-function del(button_id) {
-    let id = button_id
+function del(id) {
+
 
     let delMovie = {
         method: 'DELETE',
@@ -89,48 +93,34 @@ function del(button_id) {
 // EDITING : form
 // when it click edit button, it will creat a form for editing   and inside the adding form (?)  we will have submit button that will actually go to server - edit post.
 // $(document).on('click', function)   Timing issue?. s
-function edit(button_id){
-    let edit_form = $("#edit_form")
-    let id = button_id
-    edit_form.toggleClass("none active")
-
-    let edit_title ='';
-    let edit_rate ='';
-    let edit_year = '';
-    let edit_director = '';
-    let edit_plot = '';
-    let edit_genre = '';
-    let edit_actors = '';
-
+function edit(id){
+    $("#edit_form").toggleClass("none active")
 
 
  let edit_btn=$("#Edit_btn");
     edit_btn.on('click',()=> {
-        edit_title = $("#Edit_Title").val();
-        edit_year = $("#Edit_Year").val();
-        edit_rate = $("#Edit_Rating").val();
-        edit_director = $("#Edit_Director").val();
-        edit_plot = $("#Edit_Plot").val();
-        edit_genre = $("#Edit_Genre").val();
-        edit_actors = $("#Edit_Actors").val()
-
-        console.log(edit_title);
-        console.log(edit_actors);
-
+        let edit_title =    $("#Edit_Title");
+        let edit_year =     $("#Edit_Year");
+        let edit_rate =     $("#Edit_Rating");
+        let edit_director = $("#Edit_Director");
+        let edit_plot =     $("#Edit_Plot");
+        let edit_genre =    $("#Edit_Genre");
+        let edit_actors =   $("#Edit_Actors");
 
         fetch(url+`/${id}`,{
             method: "PUT",
-            body: JSON.stringify([{
-                title: edit_title,
-                rating: edit_rate,
-                year: edit_year,
-                director: edit_director,
-                plot: edit_plot,
-                genre: edit_genre,
-                actors: edit_actors,
-            }]),
-        }).then((response)=>response.json())
-            .then((json)=> console.log(json));
+            body: JSON.stringify({
+                id: id,
+                title:    edit_title.value,
+                rating:   edit_rate.value,
+                year:     edit_year.value,
+                director: edit_director.value,
+                plot:     edit_plot.value,
+                genre:    edit_genre.value,
+                actors:   edit_actors.value,
+            }),
+        }).then((response)=>console.log(response.json()))
+            .then(getMovie);
     })
 }
 
