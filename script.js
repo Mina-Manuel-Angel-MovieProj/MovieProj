@@ -109,15 +109,17 @@ function edit(id){
 
         fetch(url+`/${id}`,{
             method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 id: id,
-                title:    edit_title.value,
-                rating:   edit_rate.value,
-                year:     edit_year.value,
-                director: edit_director.value,
-                plot:     edit_plot.value,
-                genre:    edit_genre.value,
-                actors:   edit_actors.value,
+                title:    edit_title.val(),
+                rating:   edit_rate.val(),
+                year:     edit_year.val(),
+                director: edit_director.val(),
+                plot:     edit_plot.val(),
+                genre:    edit_genre.val(),
+                actors:   edit_actors.val(),
+                poster:     "none"
             }),
         }).then((response)=>console.log(response.json()))
             .then(getMovie);
