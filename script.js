@@ -40,7 +40,7 @@ function getMovie() {
                     "' class='delete float-right' onclick='del($(this).attr(\"data-id\"))'>delete</button></a></div></div></div>"
 
             })
-        setTimeout(finished(),1000);
+        setTimeout(()=>finished(),1000);
         })
 }
 getMovie()
