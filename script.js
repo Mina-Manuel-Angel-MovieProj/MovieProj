@@ -39,7 +39,7 @@ function getMovie() {
                 //console.log(moviesArray);
                 html.innerHTML +=
 // language = html
-                    `<div class='card col-3 m-1'>
+                    `<div class='card col-4 m-5'>
                     <img class='card-img-top img-thumbnail' src='${movie.poster}' alt='${movie.title}'>
                         <div class='card-body'>
                         <h5 class='card-title text-center'>${movie.title}(${movie.year})</h5>
@@ -59,8 +59,9 @@ function getMovie() {
 </div>${movie.rating}</li>
                         </ul>
                             <div class='change d-flex justify-content-between p-0'>
-                                <img src='assets/button2.png' alt='Edit' data-id='${movie.id}' class='edit align-self-end' onclick='edit($(this).attr(\"data-id\"))' height='40px' width='60px'>
-                                <img src='assets/button.png' alt='Delete' data-id='${movie.id}' class='delete align-self-end' onclick='del($(this).attr(\"data-id\"))' height='40px' width='60px'>
+                                <img src='assets/button2.png' alt='Edit' data-id='${movie.id}' class='edit align-self-center' onclick='edit($(this).attr(\"data-id\"))' height='50px' width='80px'>
+                                <img src='assets/filmshoot.png' alt='prop' height='80px' width='80px'>
+                                <img src='assets/button.png' alt='Delete' data-id='${movie.id}' class='delete align-self-center' onclick='del($(this).attr(\"data-id\"))' height='50px' width='80px'>
                             </div>
                         </div>
                     </div>`;
@@ -142,15 +143,20 @@ function edit(id) {
     })
 }
 
-$("#close").click(() => {
-    function removeOptions(input) {
-        if (input.hasClass("active")) {
-            input.toggleClass("none active")
-        }
+function removeOptions(input) {
+    if (input.hasClass("active")) {
+        input.toggleClass("none active")
     }
+}
 
+$("#close").click(() => {
     removeOptions($("#add_btn"));
     removeOptions($("#Edit_btn"));
     $("#form").toggleClass("none active");
 }) //makes sure close button resets all other important button statuses
 
+$(".formBackground").click(()=>{
+    removeOptions($("#add_btn"));
+    removeOptions($("#Edit_btn"));
+    $("#form").toggleClass("none active");
+})

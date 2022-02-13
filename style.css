@@ -40,7 +40,7 @@ body{
 .jumbotron {
     content: "";
     height: 350px;
-    background-image: url("assets/header copy.png") ;
+    background-image: url("assets/headerHDpng.png") ;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 45%;
@@ -53,12 +53,12 @@ body{
     background:-webkit-gradient(linear, left bottom, left 10, from(#000000), color-stop(10%, transparent),  to(transparent));;
 }
 .addAMov{
-    background-image: url("./assets/ticket.png");
+    background-image: url("./assets/add_ticket.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    width: 240px;
-    height: 90px;
+    width: 400px;
+    height: 200px;
     margin: auto;
 }
 /* ideas of css , possibility : */
@@ -120,6 +120,22 @@ p{
     transition: .3s, opacity .3s linear;
 
 }
+/*fill out form */
+form {
+    background-color : #C5CFAE;
+    color : #007665;
+    border : 2px solid #649B92;
+    padding : 5px;
+    margin-top: 40px;
+}
+
+
+/*input for popup-form {*/
+/*    border : 2px dashed #c00;*/
+/*}*/
+
+/*edit button */
+
 .formBackground{
     position: fixed;
     width: 100%;
@@ -132,14 +148,14 @@ p{
             45deg,
             transparent,
             transparent 10px,
-            rgba(127, 2, 2, 0.2) 10px,
-            rgba(127, 2, 2,.2) 20px
+            rgba(127, 106, 2, 0.2) 10px,
+            rgba(127, 106, 2, 0.2) 20px
     ), repeating-linear-gradient(
             -45deg,
             transparent,
             transparent 10px,
-            rgba(127, 2, 2,.2) 10px,
-            rgba(127, 2, 2,.2) 20px
+            rgba(127, 106, 2,.2) 10px,
+            rgba(127, 106, 2,.2) 20px
     );
 
     z-index: 2;
@@ -153,6 +169,27 @@ p{
     width: 70%;
     height: 570px;
     z-index: 3;
+
+}
+/*popup form button */
+#close{
+    background-color: thistle;
+    border: none ;
+    border-radius: 10px;
+    padding : 10px 20px;
+    margin : 3px;
+    color: black;
+    display: inline-block;
+}
+#close:hover i {
+    transform: scale(1.5) rotate(30deg);
+    color: pink;
+
+}
+
+.btn-design {
+    background-color: thistle;
+    color: black;
 
 }
 .change img{
