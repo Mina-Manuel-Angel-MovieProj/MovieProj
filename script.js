@@ -152,11 +152,6 @@ function removeOptions(input) {
 $("#close").click(() => {
     removeOptions($("#add_btn"));
     removeOptions($("#Edit_btn"));
-    $("#form").toggleClass("none active");
+    $("#form").toggleClass("none active")
 }) //makes sure close button resets all other important button statuses
 
-$(".formBackground").click(()=>{
-    removeOptions($("#add_btn"));
-    removeOptions($("#Edit_btn"));
-    $("#form").toggleClass("none active");
-})
