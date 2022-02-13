@@ -32,9 +32,9 @@
 /*    background-position: center;*/
 /*}*/
 body{
-    background-image: url("assets/popcorn-without-bgcopy.png");
+    background-image: url("assets/background.jpg");
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .jumbotron {
@@ -159,15 +159,20 @@ p{
     cursor: pointer;
 
 }
-.test{
+
+.star{
     content: "";
-    background-color: gold;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 20px;
+    width: 20px;
 }
-
+.black{
+    background-color: black;
+}
+.gold{
+    background-color: gold;
+}
 div.card{
     background-image: url("assets/filmstrip_copy.png");
     background-size: 100%;

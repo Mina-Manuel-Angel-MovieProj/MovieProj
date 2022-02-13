@@ -17,6 +17,10 @@ let finished = () => $("#loading_Screen").fadeOut("slow")
 let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
 
+function rating(number){
+
+} //runs through the ratings and returns the avg in stars.
+
 function getMovie() {
     loading();
     html.innerHTML = ""
@@ -38,15 +42,23 @@ function getMovie() {
                             <li class='list-group-item'>Director:<br> ${movie.director}</li>
                             <li class='list-group-item'>Actors:<br> ${movie.actors}</li>
                             <li class='list-group-item'>Genre(s): ${movie.genre}</li>
-                            <li class='list-group-item'>Rating:<br> ${movie.rating}</li>
+                            <li class='list-group-item'>Rating:<br> <div>
+    <p id="stars">
+        <i class="star black"></i>
+        <i class="star black"></i>
+        <i class="star black"></i>
+        <i class="star black"></i>
+        <i class="star black"></i>
+    </p>
+</div>${movie.rating}</li>
                         </ul>
                             <div class='change d-flex justify-content-between p-0'>
                                 <img src='assets/button2.png' alt='Edit' data-id='${movie.id}' class='edit align-self-end' onclick='edit($(this).attr(\"data-id\"))' height='40px' width='60px'>
                                 <img src='assets/button.png' alt='Delete' data-id='${movie.id}' class='delete align-self-end' onclick='del($(this).attr(\"data-id\"))' height='40px' width='60px'>
                             </div>
                         </div>
-                    </div>`
-
+                    </div>`;
+                rating(movie.rating);
             })
             setTimeout(() => finished(), 1000);
         })
