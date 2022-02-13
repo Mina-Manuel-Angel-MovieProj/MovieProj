@@ -33,14 +33,16 @@
 /*}*/
 
 .jumbotron {
-    height: 0;
-    position: relative;
-    padding: 56.25% 0 0 !important;
+    content: "";
+    height: 350px;
     background-image: url("assets/header copy.png") ;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-size: 100% 45%;
 }
-
+#header{
+    background:-webkit-gradient(linear, left top, left 40, from(#71595a), color-stop(25%, #705b5b), to(#b7a7a7));;
+}
 /* ideas of css , possibility : */
 
 /* favicon will be a curtain ✅*/
@@ -134,4 +136,25 @@ p{
     height: 570px;
     z-index: 3;
 
+}
+.change img{
+    cursor: pointer;
+
+}
+.test{
+    content: "";
+    background-color: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
+
+div.card{
+    background-image: url("assets/filmstrip_copy.png");
+    background-size: 100%;
+}
+div.card-body{
+    background-color: white;
+    background-size:  contain;
 }
