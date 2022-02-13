@@ -39,9 +39,13 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 45%;
+
 }
-#header{
-    background:-webkit-gradient(linear, left top, left 40, from(#71595a), color-stop(25%, #705b5b), to(#b7a7a7));;
+.jumbotron div{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background:-webkit-gradient(linear, left bottom, left 10, from(#000000), color-stop(10%, transparent),  to(transparent));;
 }
 /* ideas of css , possibility : */
 
