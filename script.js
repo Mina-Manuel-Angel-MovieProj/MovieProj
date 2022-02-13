@@ -17,8 +17,14 @@ let finished = () => $("#loading_Screen").fadeOut("slow")
 let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
 
-function rating(number){
-
+function rating(id, number){
+let stars = $("#stars"+id).children(".star")    // finds correct stars.
+    stars.map((star,ind)=>{
+      if (ind <= number){
+          star[ind].addClass("gold");       //something here is missing..
+          star[ind].removeClass("black");
+      }
+    })
 } //runs through the ratings and returns the avg in stars.
 
 function getMovie() {
@@ -43,7 +49,7 @@ function getMovie() {
                             <li class='list-group-item'>Actors:<br> ${movie.actors}</li>
                             <li class='list-group-item'>Genre(s): ${movie.genre}</li>
                             <li class='list-group-item'>Rating:<br> <div>
-    <p id="stars">
+    <p id="stars${movie.id}">
         <i class="star black"></i>
         <i class="star black"></i>
         <i class="star black"></i>
@@ -58,7 +64,7 @@ function getMovie() {
                             </div>
                         </div>
                     </div>`;
-                rating(movie.rating);
+                rating(movie.id, movie.rating);
             })
             setTimeout(() => finished(), 1000);
         })
