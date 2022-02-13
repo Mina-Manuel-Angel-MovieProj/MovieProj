@@ -31,6 +31,11 @@
 /*    background-size: auto 100%;*/
 /*    background-position: center;*/
 /*}*/
+body{
+    background-image: url("assets/popcorn-without-bgcopy.png");
+    background-attachment: fixed;
+    background-size: 100%;
+}
 
 .jumbotron {
     content: "";
@@ -46,6 +51,15 @@
     height: 100%;
     width: 100%;
     background:-webkit-gradient(linear, left bottom, left 10, from(#000000), color-stop(10%, transparent),  to(transparent));;
+}
+.addAMov{
+    background-image: url("./assets/ticket.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 240px;
+    height: 90px;
+    margin: auto;
 }
 /* ideas of css , possibility : */
 
