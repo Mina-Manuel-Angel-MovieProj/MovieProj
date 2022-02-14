@@ -33,14 +33,13 @@ function getMovie() {
     $.ajax('https://mma-movies.glitch.me/movies')
         .done((data) => {
             console.log(data)
-            data.map(movie => {
+             data.map(movie => {
                 //fetch(movieapi?=movie).then()
-
                 //console.log(moviesArray);
-                html.innerHTML +=
+                 html.innerHTML +=
 // language = html
                     `<div class='card col-4 m-5'>
-                    <img class='card-img-top img-thumbnail' src='${movie.poster}' alt='${movie.title}'>
+                    <img data-tilt class='card-img-top poster img-thumbnail' src='${movie.poster}' alt='${movie.title}'>
                         <div class='card-body'>
                         <h5 class='card-title text-center'>${movie.title}(${movie.year})</h5>
                         <p class='card-text'>${movie.plot}</p>
@@ -62,8 +61,14 @@ function getMovie() {
                     </div>`;
                 rating(movie.id, movie.rating);
             })
+            VanillaTilt.init(document.querySelectorAll(".poster"), {
+                max: 25,
+                speed: 400
+            });
             setTimeout(() => finished(), 3000);
+
         })
+
 }
 
 getMovie()
@@ -156,3 +161,5 @@ $("#close").click(() => {
 //     removeOptions($("#Edit_btn"));
 //     $("#form").toggleClass("none active");
 // })
+
+
