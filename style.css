@@ -32,16 +32,18 @@
 /*    background-position: center;*/
 /*}*/
 body{
-    background-image: url("assets/background.jpg");
+    background-image: url("assets/retrobg1.png");
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
 .jumbotron {
     content: "";
     height: 350px;
-    background-image: url("assets/headerHDpng.png") ;
+    background-image: url("assets/headingWbg.png") ;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
@@ -50,6 +52,13 @@ body{
 
 }
 .jumbotron div{
+
+    background-size: 60% 45%;
+    background-color: black;
+
+
+
+
     content: "";
     height: 100%;
     width: 100%;
@@ -302,11 +311,14 @@ p{
 }
 /*fill out form */
 form {
-    background-color : #C5CFAE;
+    background-color : #F9AFA8;
     color : #007665;
-    border : 2px solid #649B92;
+    border : 2px solid #F9AFA8;
     height: 100%;
     width: 100%;
+    font-family: var(--font-movie-title);
+    font-weight: bold;
+    font-size: var(--font-regular);
 }
 
 
@@ -353,17 +365,17 @@ form {
 }
 /*popup form button */
 #close{
-    background-color: thistle;
+    background-color: #597B98;
     border: none ;
     border-radius: 10px;
     padding : 10px 20px;
     margin : 3px;
-    color: black;
+    color: #C73C4F;
     display: inline-block;
 }
 #close:hover i {
     transform: scale(1.5) rotate(30deg);
-    color: pink;
+    color: #C73C4F;
 
 }
 
@@ -391,7 +403,7 @@ form {
     background-color: gold;
 }
 div.card{
-    background-image: url("assets/filmstrip_copy.png");
+    background-color: #C0B9AD;
     background-size: 100%;
 }
 div.card-body{
