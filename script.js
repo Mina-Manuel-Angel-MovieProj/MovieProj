@@ -67,7 +67,7 @@ function getMovie() {
                     </div>`;
                 rating(movie.id, movie.rating);
             })
-            setTimeout(() => finished(), 1000);
+            setTimeout(() => finished(), 3000);
         })
 }
 
@@ -155,3 +155,8 @@ $("#close").click(() => {
     $("#form").toggleClass("none active")
 }) //makes sure close button resets all other important button statuses
 
+$(".formBackground").click(()=>{
+    removeOptions($("#add_btn"));
+    removeOptions($("#Edit_btn"));
+    $("#form").toggleClass("none active");
+})
