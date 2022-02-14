@@ -58,9 +58,9 @@ function getMovie() {
 </div>${movie.rating}</li>
                         </ul>
                             <div class='change d-flex justify-content-between p-0'>
-                                <img src='assets/button2.png' alt='Edit' data-id='${movie.id}' class='edit align-self-center' onclick='edit($(this).attr(\"data-id\"))' height='50px' width='80px'>
+                                <img src='assets/button2.png' alt='Edit' id="Edit_btn" data-id='${movie.id}' class='edit align-self-center' onclick='edit($(this).attr("data-id"))' height='50px' width='80px'>
                                 <img src='assets/filmshoot.png' alt='prop' height='80px' width='80px'>
-                                <img src='assets/button.png' alt='Delete' data-id='${movie.id}' class='delete align-self-center' onclick='del($(this).attr(\"data-id\"))' height='50px' width='80px'>
+                                <img src='assets/button.png' alt='Delete' id="Delete_btn" data-id='${movie.id}' class='delete align-self-center' onclick='del($(this).attr("data-id"))' height='50px' width='80px'>
                             </div>
                         </div>
                     </div>`;
@@ -104,11 +104,10 @@ document.getElementById("open_form_add").addEventListener("click", () => {
 //grab btn  click ()   : fetch ()  .delete
 function del(id) {
 
-
     let delMovie = {
         method: 'DELETE',
     }
-    fetch(url + ` /${id}`, delMovie).then(getMovie)
+    fetch(url + `/${id}`, delMovie).then(getMovie)
 }
 
 // EDITING : form
@@ -118,10 +117,12 @@ function edit(id) {
     let edit = $("#Edit_btn")
     $("#form").toggleClass("none active");
     edit.toggleClass("none active");
+    $("#add_btn").removeClass("active");
 
     edit.on('click', () => {
-
-        fetch(url + ` /${id}`, {
+        console.log("edit btn clicked!")
+        $("#form").toggleClass("none active")
+        fetch(url + `/${id}`, {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -153,9 +154,9 @@ $("#close").click(() => {
     removeOptions($("#Edit_btn"));
     $("#form").toggleClass("none active")
 }) //makes sure close button resets all other important button statuses
-
-$(".formBackground").click(()=>{
-    removeOptions($("#add_btn"));
-    removeOptions($("#Edit_btn"));
-    $("#form").toggleClass("none active");
-})
+//
+// $(".formBackground").click(()=>{
+//     removeOptions($("#add_btn"));
+//     removeOptions($("#Edit_btn"));
+//     $("#form").toggleClass("none active");
+// })

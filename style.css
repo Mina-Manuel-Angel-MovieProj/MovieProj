@@ -42,24 +42,18 @@ body{
 
 .jumbotron {
     content: "";
-    height: 350px;
-    background-image: url("assets/headingWbg.png") ;
+    height: 600px;
+    width: 100%;
+    background-image: url("assets/head3.png") ;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
-    background-size: 60% 45%;
+    background-size: 70% 70%;
     background-color: black;
 
 }
 .jumbotron div{
-
     background-size: 60% 45%;
-    background-color: black;
-
-
-
-
-    content: "";
     height: 100%;
     width: 100%;
     background:-webkit-gradient(linear, left bottom, left 10, from(#000000), color-stop(10%, transparent),  to(transparent));;
@@ -72,7 +66,13 @@ body{
     width: 400px;
     height: 200px;
     margin: auto;
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,1);
 }
+.addAMov:hover{
+    box-shadow: none;
+    transform: scale(1.1);
+}
+
 /* ideas of css , possibility : */
 
 /* favicon will be a curtain ✅*/
@@ -366,12 +366,11 @@ form {
 }
 /*popup form button */
 #close{
-    background-color: #597B98;
     border: none ;
     border-radius: 10px;
     padding : 10px 20px;
     margin : 3px;
-    color: #C73C4F;
+    color: #270404;
     display: inline-block;
 }
 #close:hover i {
@@ -382,12 +381,11 @@ form {
 
 .btn-design {
     background-color: thistle;
-    color: black;
+
 
 }
-.change img{
+#Edit_btn, #Delete_btn{
     cursor: pointer;
-
 }
 
 .star{
@@ -406,6 +404,8 @@ form {
 div.card{
     background-color: #C0B9AD;
     background-size: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
 div.card-body{
     background-color: white;
