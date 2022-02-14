@@ -347,14 +347,14 @@ form {
             45deg,
             transparent,
             transparent 10px,
-            rgba(127, 106, 2, 0.2) 10px,
-            rgba(127, 106, 2, 0.2) 20px
+            rgba(0, 84, 180,0.5) 10px,
+            rgba(0, 84, 180, 0.2) 20px
     ), repeating-linear-gradient(
             -45deg,
             transparent,
             transparent 10px,
-            rgba(127, 106, 2,.2) 10px,
-            rgba(127, 106, 2,.2) 20px
+            rgba(0, 61, 97,0.5) 10px,
+            rgba(0, 103, 166,.2) 20px
     );
 
     z-index: 2;
@@ -366,7 +366,7 @@ form {
     top: 200px;
     left: 150px;
     width: 70%;
-    height: 410px;
+    height: 420px;
     z-index: 3;
 
 }
@@ -418,11 +418,12 @@ div.card-body{
     background-size:  contain;
 }
 .fullScreen{
-    border: 3px solid black;
+    border: 3px solid #C0B9AD;
     position: fixed;
-    top: 200px;
-    left: 150px;
-    width: 70%;
-    height: 410px;
+    top: 10px;
+    left: 30%;
+    width: auto ;
+    height: auto;
+
     z-index: 3;
 }

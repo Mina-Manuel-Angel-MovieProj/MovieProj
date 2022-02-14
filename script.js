@@ -25,17 +25,18 @@ function rating(id, number){
     // if (ind <= number){// star.toggleClass(`black gold`);       //something here is missing...}
 } //runs through the ratings and returns lit up stars.
 function fullScreen(id){
-let poster= $(`img > #${id}`)
-    console.log(poster)
-    poster.toggleClass("fullScreen card-image-top img-thumbnail")
-    /*
-    let poster= img;
-    let full= $("#fullScreen");
-    // full.innerHTML= `<img src='${poster}' alt='fullscreen'>`;
-    full.toggleClass("none active");
-*/
+let poster= $(`#poster${id}`)
+
+console.log(poster.attr("src"))
+    let full= $(".fullScreen");
+full.toggleClass("none active");
+
+full.html(`<img src='${poster.attr("src")}'>`);
+// full.css(`background-image : url(${poster.attr("src")})`)
+
 
 }
+
 
 function getMovie() {
     loading();
@@ -49,7 +50,7 @@ function getMovie() {
                  html.innerHTML +=
 // language = html
                     `<div class='card col-4 m-5'>
-                    <img data-tilt class='card-img-top poster img-thumbnail' id="${movie.id}" src='${movie.poster}' alt='${movie.title}' onclick='fullScreen(${movie.id})'>
+                    <img data-tilt class='card-img-top poster img-thumbnail' id="poster${movie.id}" src='${movie.poster}' alt='${movie.title}' onclick='fullScreen(${movie.id})'>
                         <div class='card-body'>
                         <h5 class='card-title text-center'>${movie.title}(${movie.year})</h5>
                         <p class='card-text'>${movie.plot}</p>
