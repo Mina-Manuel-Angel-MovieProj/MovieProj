@@ -19,6 +19,7 @@ let html = document.getElementById("movie__cards")
 
 function rating(id, number){
     let stars = $(`#stars${id}`)    // finds correct stars.
+    stars.html("")
     for(let i=0;i<number;i++) {
         stars.append(`<i class="star gold"></i>`)
     }
