@@ -18,14 +18,13 @@ let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
 
 function rating(id, number){
-let stars = $("#stars"+id).children(".star")    // finds correct stars.
+    let stars = $(`#stars${id}`).children(".star")    // finds correct stars.
     stars.map((star,ind)=>{
       if (ind <= number){
-          star[ind].addClass("gold");       //something here is missing..
-          star[ind].removeClass("black");
+          star.toggleClass(`black gold`);       //something here is missing...
       }
     })
-} //runs through the ratings and returns the avg in stars.
+} //runs through the ratings and returns lit up stars.
 
 function getMovie() {
     loading();
