@@ -18,12 +18,13 @@ let url = 'https://mma-movies.glitch.me/movies'
 let html = document.getElementById("movie__cards")
 
 function rating(id, number){
-    let stars = $(`#stars${id}`).children(".star")    // finds correct stars.
-    stars.map((star,ind)=>{
-      if (ind <= number){
-          star.toggleClass(`black gold`);       //something here is missing...
-      }
-    })
+    let stars = $(`#stars${id}`)    // finds correct stars.
+    for(let i=0;i<number;i++) {
+        stars.append(`<i class="star gold"></i>`)
+    }
+
+    // if (ind <= number){// star.toggleClass(`black gold`);       //something here is missing...}
+
 } //runs through the ratings and returns lit up stars.
 
 function getMovie() {
@@ -49,11 +50,6 @@ function getMovie() {
                             <li class='list-group-item'>Genre(s): ${movie.genre}</li>
                             <li class='list-group-item'>Rating:<br> <div>
     <p id="stars${movie.id}">
-        <i class="star black"></i>
-        <i class="star black"></i>
-        <i class="star black"></i>
-        <i class="star black"></i>
-        <i class="star black"></i>
     </p>
 </div>${movie.rating}</li>
                         </ul>

@@ -288,9 +288,14 @@ h1{
 }
 h5{
     font-family: var(--font-movie-title);
+    font-size: var(--font-medium);
 }
 p{
     font-family: var(--font-p);
+    font-weight: bold;
+}
+ul{
+    font-family: var(--font-movie-title);
 }
 
 
