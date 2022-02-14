@@ -22,10 +22,20 @@ function rating(id, number){
     for(let i=0;i<number;i++) {
         stars.append(`<i class="star gold"></i>`)
     }
-
     // if (ind <= number){// star.toggleClass(`black gold`);       //something here is missing...}
-
 } //runs through the ratings and returns lit up stars.
+function fullScreen(id){
+let poster= $(`img > #${id}`)
+    console.log(poster)
+    poster.toggleClass("fullScreen card-image-top img-thumbnail")
+    /*
+    let poster= img;
+    let full= $("#fullScreen");
+    // full.innerHTML= `<img src='${poster}' alt='fullscreen'>`;
+    full.toggleClass("none active");
+*/
+
+}
 
 function getMovie() {
     loading();
@@ -39,7 +49,7 @@ function getMovie() {
                  html.innerHTML +=
 // language = html
                     `<div class='card col-4 m-5'>
-                    <img data-tilt class='card-img-top poster img-thumbnail' src='${movie.poster}' alt='${movie.title}'>
+                    <img data-tilt class='card-img-top poster img-thumbnail' id="${movie.id}" src='${movie.poster}' alt='${movie.title}' onclick='fullScreen(${movie.id})'>
                         <div class='card-body'>
                         <h5 class='card-title text-center'>${movie.title}(${movie.year})</h5>
                         <p class='card-text'>${movie.plot}</p>
@@ -62,8 +72,8 @@ function getMovie() {
                 rating(movie.id, movie.rating);
             })
             VanillaTilt.init(document.querySelectorAll(".poster"), {
-                max: 25,
-                speed: 400
+                max: 5,
+                speed: 300
             });
             setTimeout(() => finished(), 3000);
 

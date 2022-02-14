@@ -37,6 +37,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 0;
 }
 
 
@@ -44,12 +45,12 @@ body{
     content: "";
     height: 600px;
     width: 100%;
-    background-image: url("assets/head3.png") ;
+    background-image: url("assets/head1.png") ;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
     background-size: 70% 70%;
-    background-color: black;
+    background-color: #00303F;
 
 }
 .jumbotron div{
@@ -415,4 +416,13 @@ div.card{
 div.card-body{
     background-color: white;
     background-size:  contain;
+}
+.fullScreen{
+    border: 3px solid black;
+    position: fixed;
+    top: 200px;
+    left: 150px;
+    width: 70%;
+    height: 410px;
+    z-index: 3;
 }
